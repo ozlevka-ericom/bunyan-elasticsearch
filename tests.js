@@ -2,14 +2,17 @@
 
 const assert = require('assert');
 const fs = require('fs');
+const esModule = require('./index');
+
+
 
 
 describe("Test for test", () => {
     'use strict';
     describe("First Test for test", () => {
         
-        it.only("should run for config", () => {
-           console.log("The first")
+        it("should run for config", () => {
+
         });
 
 
