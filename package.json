@@ -26,6 +26,7 @@
     "elasticsearch": "^12.1.0"
   },
   "devDependencies": {
-    "mocha": "^2.3.4"
+    "mocha": "^2.3.4",
+    "bunyan": "^1.8.12"
   }
 }
