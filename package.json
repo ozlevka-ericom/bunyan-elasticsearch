@@ -23,11 +23,11 @@
   "homepage": "https://github.com/ccowan/bunyan-elasticsearch",
   "dependencies": {
     "moment": "^2.11.1",
-    "elasticsearch": "^16.3.0"
+    "elasticsearch": "^16.3.0",
+    "async": "^3.1.0"
   },
   "devDependencies": {
     "mocha": "^2.3.4",
-    "bunyan": "^1.8.12",
-    "async": "^3.1.0"
+    "bunyan": "^1.8.12"
   }
 }
