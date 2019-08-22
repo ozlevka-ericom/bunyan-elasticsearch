@@ -1,23 +1,22 @@
 
-
+const async = require('async');
 const assert = require('assert');
 const fs = require('fs');
-const esModule = require('./index');
+const ElasticsearchStream = require('./index');
 
 
-
-
-describe("Test for test", () => {
-    'use strict';
-    describe("First Test for test", () => {
-        
-        it("should run for config", () => {
-
-        });
-
-
-        it("should run for test only alone", () => {
-            console.log("Test alone");
-        });
-    });
+describe("Test elasticsearch init", () => {
+   describe("Initialization stream test", () => {
+       it("should initialize stream and test client ready", function() {
+            const esStream = new ElasticsearchStream();
+            const client = esStream._client;
+            client.ping((err, res, code) => {
+                if(err) {
+                    console.log(err);
+                } else {
+                    console.log(code, res)
+                }
+            });
+       });
+   });
 });
