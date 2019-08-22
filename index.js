@@ -71,6 +71,10 @@ ElasticsearchStream.prototype.stop = function() {
     clearInterval(this.interval);
 };
 
+ElasticsearchStream.prototype.write = function(record) {
+    this._write(record, 'UTF-8');
+};
+
 ElasticsearchStream.prototype._write = function (entry, encoding, callback) {
 
   var client = this._client;

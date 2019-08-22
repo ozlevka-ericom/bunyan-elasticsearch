@@ -67,9 +67,9 @@ describe("Stream Tests (require es)", () => {
             this.timeout(20000);
             const interval = setInterval(function(){
                 for(var i = 0; i < 100; i++) {
-                    esStream._write(JSON.stringify({
+                    esStream.write(JSON.stringify({
                         name: "aaaaa"
-                    }), "UTF-8");
+                    }));
                 }
             }, 200);
 
