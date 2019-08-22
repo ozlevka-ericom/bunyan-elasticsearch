@@ -77,22 +77,10 @@ ElasticsearchStream.prototype.write = function(record) {
 
 ElasticsearchStream.prototype._write = function (entry, encoding, callback) {
 
-  var client = this._client;
-  var index = this._index;
-  var type = this._type;
-
-  entry = JSON.parse(entry.toString('utf8'));
+  //entry = JSON.parse(entry.toString('utf8'));
 
   // Reassign these fields so them match what the default Kibana dashboard 
   // expects to see.
-  entry['@timestamp'] = entry.time;
-  entry.level = levels[entry.level];
-  entry.message = entry.msg;
-
-  // remove duplicate fields
-  delete entry.time;
-  delete entry.msg;
-
   this.queue.enqueue(entry);
 };
 
