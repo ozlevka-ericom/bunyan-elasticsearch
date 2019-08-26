@@ -44,7 +44,7 @@ function ElasticsearchStream (options) {
                   while(!queue.isEmpty() && dataset.length < maxIndex) {
                       dataset.push(queue.dequeue());
                   }
-                  const index = [(options.writeIndexPrefix || 'reports-'), moment().format(options.dateFormat || 'YYYY-MM')].join('');
+                  const index = [(options.writeIndexPrefix || 'reports-'), moment().format(options.dateFormat || 'YYYY-MM-DD')].join('');
                   try {
                       const bulkResult = await client.bulk(dataset, index);
                       console.log(bulkResult);
