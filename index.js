@@ -81,6 +81,11 @@ ElasticsearchStream.prototype._write = function (entry, encoding, callback) {
 
   // Reassign these fields so them match what the default Kibana dashboard 
   // expects to see.
+  if('time' in entry) {
+      entry['@timestamp'] = entry.time;
+  } else {
+      entry['@timestamp'] = new Date();
+  }
   this.queue.enqueue(entry);
 };
 
