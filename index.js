@@ -41,7 +41,7 @@ ElasticsearchStream.prototype._write = function (entry, encoding, callback) {
   var index = this._index;
   var type = this._type;
 
-  entry = JSON.parse(entry.toString('utf8'));
+  //entry = JSON.parse(entry.toString('utf8'));
 
   // Reassign these fields so them match what the default Kibana dashboard 
   // expects to see.
