@@ -29,6 +29,7 @@ function ElasticsearchStream (options) {
   this._type = options.type || 'logs';
   var indexPattern = options.indexPattern || '[reports-]YYYY.MM.DD';
   this._index = options.index || generateIndexName.bind(null, indexPattern);
+  options.objectMode = true;
   Writable.call(this, options);
 }
 
