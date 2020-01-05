@@ -32,6 +32,7 @@ function ElasticsearchStream (options) {
   options = options || {};
   const client = options.wrapper || new esWrapper(options);
   this._client = client;
+  this._systemId = options.logSystemID || "1111-1111-1111-111";
   const queue = new Queue();
   this.queue = queue;
   Writable.call(this, options);
@@ -86,6 +87,7 @@ ElasticsearchStream.prototype._write = function (entry, encoding, callback) {
   } else {
       entry['@timestamp'] = new Date();
   }
+  entry["logSystemID"] = this._systemId;
   this.queue.enqueue(entry);
 };
 
